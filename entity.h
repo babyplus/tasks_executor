@@ -3,17 +3,18 @@
 #include <string>
 #include <cstring>
 
-#define FROM_MAIL       "<15017228752@yeah.net>"
-#define TO_MAIL     "<495031718@qq.com>"
-#define CC_MAIL       "<huangmiaomiao233@gmail.com>"
+#define ENTITY_RAW  (1<<Entity::raw)
+#define ENTITY_FILE (1<<Entity::file)
 
+typedef unsigned int flags_t;
 extern char * payload_text;
 
 class Entity : public Component
 {
     private:
         std::string description;
-        const char * data;
+        flags_t flags;
+        const char* data;
         int data_len;
         bool data_is_malloc = false;
         void _Entity_raw(const char *, const int);
@@ -22,14 +23,9 @@ class Entity : public Component
     public:
         enum type
         {
-            file,
             raw,
+            file,
         };
-        struct data_s
-        {
-            long len;
-            const char * data;
-        } data_t;
         Entity(const std::string&, Entity::type, const char *);
         Entity(const std::string&, Entity::type, char *, const long);
         virtual ~Entity();
