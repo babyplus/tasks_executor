@@ -1,5 +1,9 @@
 #ifndef TOOLS 
 
+#include <ctime>
+#include <cerrno>
+#include <climits>
+
 #define GET_FILE_SIZE(file_size, fp) do {\
     char ch = 0;\
     fseek(fp, 0, SEEK_END);\

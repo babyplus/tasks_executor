@@ -1,13 +1,6 @@
-#define FROM_MAIL       "<15017228752@yeah.net>"
-#define TO_MAIL     "<495031718@qq.com>"
-#define CC_MAIL       "<huangmiaomiao233@gmail.com>"
-
 #include "entities.h"
 #include "entity.h"
 #include "element.h"
-#include <ctime>
-#include <cerrno>
-#include <climits>
 
 int main () {
     const char * test = "raw test";
